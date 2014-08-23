@@ -1,3 +1,5 @@
+import org.example.BuildInfo
+
 // locations to search for config files that get merged into the main config;
 // config files can be ConfigSlurper scripts, Java properties files, or classes
 // in the classpath in ConfigSlurper format
@@ -61,7 +63,12 @@ grails {
         // escapes all not-encoded output at final stage of outputting
         // filteringCodecForContentType.'text/html' = 'html'
     }
-}
+    resources{
+            uri{
+                prefix="s/${BuildInfo.instance.getVersionId().substring(0,9)}".toString()
+            }
+        }
+    }
 
 
 grails.converters.encoding = "UTF-8"
