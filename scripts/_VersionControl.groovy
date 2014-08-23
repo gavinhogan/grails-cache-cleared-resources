@@ -1,3 +1,5 @@
+import org.apache.commons.lang.RandomStringUtils
+
 /*
  * Methods to facilitate easy access to version control within our Grails scripts.
  */
@@ -14,10 +16,10 @@ class FileSystemVersionControlProvider implements VersionControlProvider {
         return true
     }
     String getCurrentRevision() {
-        return null
+        return RandomStringUtils.randomAlphanumeric(20)
     }
     String getCurrentBranch() {
-        return null
+        return "FileSystem"
     }
     String getName() {
         return 'File System'
